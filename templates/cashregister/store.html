@@ -1,0 +1,25 @@
+<head>
+<style type="text/css">
+table#product {
+    display: inline-block;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+<h1>Welcome to Bitmart</h1>
+
+<p>May we interest you in any of our fine products today?</p>
+
+{% for item in available_products %}
+<table id="product">
+<tr><td> <a href=""><img src="/media/{{ item.picture }}"></a> </tr></td>
+<tr><th> {{ item.name }} </th></tr>
+<tr><td> {{ item.description }} </td></tr>
+<tr><td> {{ item.stock }} available </td></tr>
+<tr><th> Kr {{ item.gross_unit_price }} </th></tr>
+<tr><td> <a href=""><img src="/media/VisaMastercard.jpg"></a> </td></tr>
+</table>
+{% endfor %}
+</body>

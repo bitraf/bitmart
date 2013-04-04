@@ -1,0 +1,20 @@
+<html>
+<body>
+
+<h1>Editing product</h1>
+
+<form enctype="multipart/form-data" action="/clerk/products/{{ product.id }}/" method="post">
+{% csrf_token %}
+<table>
+{{ form }}
+
+<tr><td>&nbsp;</td></tr>
+<tr><td></td><td><input type="submit" value="Submit" /></td>
+
+</table>
+</form>
+
+<img src="/media/{{ product.picture }}">
+
+</body>
+</html>

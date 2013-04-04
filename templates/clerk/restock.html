@@ -1,0 +1,19 @@
+<html>
+<body>
+
+<h1>Restock supplies</h1>
+
+<form action="/clerk/supplies/" method="post">
+{% csrf_token %}
+
+<table>
+{{ form }}
+
+<tr><td>&nbsp;</td></tr>
+<tr><td></td><td><input type="submit" value="Submit" /></td>
+
+</table>
+</form>
+
+</body>
+</html>
