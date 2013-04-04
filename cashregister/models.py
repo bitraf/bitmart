@@ -3,11 +3,11 @@
 from django.db import models
 
 MVA_CHOICES = (
-	(0, '0 % - Fritatt'),
-	(8, '8 % - Redusert sats'),
-	(15, '15 % - Matvaresats'),
-	(25, '25 % - Ordinær sats'),
-	)
+    (0, '0 % - Fritatt'),
+    (8, '8 % - Redusert sats'),
+    (15, '15 % - Matvaresats'),
+    (25, '25 % - Ordinær sats'),
+)
 
 class User(models.Model):
     username = models.CharField(max_length=30)
@@ -15,16 +15,16 @@ class User(models.Model):
     last_name = models.CharField(max_length=30)
 
     AUTH_TYPE_CHOICES = (
-	    (0, 'None'),
-	    (1, 'p2k12'),
-	    (2, 'Password'),
-	    )
+        (0, 'None'),
+        (1, 'p2k12'),
+        (2, 'Password'),
+        )
     auth_type = models.IntegerField(choices = AUTH_TYPE_CHOICES)
 
     is_admin = models.BooleanField(default = False)
 
     def __unicode__(self):
-	return self.username
+        return self.username
 
 class Product(models.Model):
     name = models.CharField(max_length=30)
@@ -38,10 +38,10 @@ class Product(models.Model):
 
     # Find price without MVA
     def net_unit_price(self):
-	return round( float(self.gross_price) / (1 + float(self.mva_rate) / 100), 2)
+        return round( float(self.gross_price) / (1 + float(self.mva_rate) / 100), 2)
 
     def __unicode__(self):
-	return self.name 
+        return self.name 
 
 class SalesTransaction(models.Model):
     timestamp = models.DateTimeField()
