@@ -15,13 +15,13 @@ def edit(request, product_id):
 
             # Create a new Server object.
             form.save()
-	    return HttpResponseRedirect('/clerk/products/')
+            return HttpResponseRedirect('/clerk/products/')
     else:
         form = ProductDetailForm(instance = product)
 
     variables = RequestContext(request, {
         'form': form,
-	'product': product
+    'product': product
     })
 
     return render_to_response('clerk/productdetail.html', variables)
@@ -33,23 +33,22 @@ def new(request):
 
             # Create a new Server object.
             form.save()
-	    return HttpResponseRedirect('/clerk/products/')
+            return HttpResponseRedirect('/clerk/products/')
     else:
         form = ProductDetailForm()
 
-    variables = RequestContext(request, {
-        'form': form,
-    })
+    variables = RequestContext(request, { 'form': form, })
 
     return render_to_response('clerk/productdetail.html', variables)
 
 class ProductDetailForm(ModelForm):
     def clean_image(self):
-	image = self.cleaned_data.get('image', False)
-	if not self.instance.image == image:
-	    return None
+        image = self.cleaned_data.get('image', False)
+
+        if not self.instance.image == image:
+            return None
 
     class Meta:
-	model = Product
+        model = Product
 
 
