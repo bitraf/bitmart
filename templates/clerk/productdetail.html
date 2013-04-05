@@ -1,6 +1,6 @@
-<html>
-<body>
+{% extends "base.html" %}
 
+{% block content %}
 <h1>Editing product</h1>
 
 <form enctype="multipart/form-data" action="/clerk/products/{{ product.id }}/" method="post">
@@ -16,5 +16,4 @@
 
 <img src="/media/{{ product.picture }}">
 
-</body>
-</html>
+{% endblock %}

@@ -1,6 +1,6 @@
-<html>
-<body>
+{% extends "base.html" %}
 
+{% block content %}
 <h1>Restock supplies</h1>
 
 <form action="/clerk/supplies/" method="post">
@@ -15,5 +15,4 @@
 </table>
 </form>
 
-</body>
-</html>
+{% endblock %}

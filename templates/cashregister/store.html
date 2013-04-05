@@ -1,13 +1,13 @@
-<head>
+{% extends "base.html" %}
+
+{% block content %}
 <style type="text/css">
 table#product {
-    display: inline-block;
-    text-align: center;
+  display: inline-block;
+  text-align: center;
 }
 </style>
-</head>
 
-<body>
 <h1>Welcome to Bitmart</h1>
 
 <p>May we interest you in any of our fine products today?</p>
@@ -22,4 +22,5 @@ table#product {
 <tr><td> <a href=""><img src="/media/VisaMastercard.jpg"></a> </td></tr>
 </table>
 {% endfor %}
-</body>
+
+{% endblock %}

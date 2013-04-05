@@ -52,7 +52,10 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = os.getcwd() + '/media/'
+MEDIA_ROOT = os.getcwd() + '/uploads/'
+
+# Root for misc external static resources
+EXTERNAL_ROOT = os.getcwd() + '/external/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
