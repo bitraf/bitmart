@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/external/bootstrap-2.3.1/css/bootstrap.css" rel="stylesheet" media="screen">
+  <link href="/resources/bootstrap-2.3.1/css/bootstrap.css" rel="stylesheet" media="screen">
   <!--
   <style>
   body {
@@ -11,11 +11,13 @@
   }
   </style>
   -->
-  <link href="/external/bootstrap-2.3.1/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+  <link href="/resources/bootstrap-2.3.1/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+  <script src="/resources/angular-1.0.6/angular.js"></script>
+  <script src="/resources/bitmart/clerk.js"></script>
   {% block head %}{% endblock %}
 </head>
 
-<body>
+<body ng-app>
   <!--
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
@@ -40,9 +42,7 @@
   <div class="container">
     {% block content %}{% endblock %}
   </div>
-<!--
-  <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="/media/external/bootstrap-2.3.1/js/bootstrap.js"></script>
--->
+  <script src="/resources/jquery-1.8.3/jquery.js"></script>
+  <script src="/resources/bootstrap-2.3.1/js/bootstrap.js"></script>
 </body>
 </html>

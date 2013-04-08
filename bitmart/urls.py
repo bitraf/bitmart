@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^clerk/', include('clerk.urls')),
 
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-    (r'^external/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.EXTERNAL_ROOT}),
+    (r'^resources/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.RESOURCES_ROOT}),
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
