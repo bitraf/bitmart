@@ -26,12 +26,20 @@ class User(models.Model):
     def __unicode__(self):
         return self.username
 
+class ProductCategory(models.Model):
+    name = models.CharField(max_length=20)
+
+    def __unicode__(self):
+        return self.name
+
 class Product(models.Model):
     name = models.CharField(max_length=30)
-    description = models.TextField()
+    description = models.TextField(blank=True)
     picture = models.ImageField(upload_to='product_pictures/')
 
-    stock = models.IntegerField(editable=False, default = 0)
+    category = models.ForeignKey(ProductCategory)
+
+    stock = models.IntegerField(default = 0)
 
     gross_unit_price = models.DecimalField(max_digits=10, decimal_places=2)
     mva_rate = models.IntegerField(choices = MVA_CHOICES, default = 15)
@@ -42,6 +50,8 @@ class Product(models.Model):
 
     def __unicode__(self):
         return self.name 
+
+    
 
 class SalesTransaction(models.Model):
     timestamp = models.DateTimeField()
