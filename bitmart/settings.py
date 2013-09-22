@@ -52,7 +52,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = os.getcwd() + '/uploads/'
+MEDIA_ROOT = os.getcwd() + '/media/'
 
 # Root for client-side resources
 RESOURCES_ROOT = os.getcwd() + '/resources/'
@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'tastypie',
+    'south',
     'cashregister',
 )
 
