@@ -36,7 +36,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
   <p class="navbar-text" id="ShoppingCartStat">Sum handlekurv: {{ cart.stats.sum | number:2 }} kr</p>
   <p class="navbar-text" id="ShoppingCartStat">Antall produkter: {{ cart.stats.numItems }}</p>
-  <button type="button" class="btn btn-success navbar-btn">Gå til kasse</button>
+  <button type="button" class="btn btn-success navbar-btn" ng-click="cart.generateSale()">Gå til kasse</button>
   <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#cartModal">Vis handlekurv</button>
   <button type="button" class="btn btn-default navbar-btn" ng-click="cart.clear()">Tøm handlekurv</button>
 </nav>

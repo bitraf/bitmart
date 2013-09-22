@@ -57,7 +57,14 @@ class SalesTransaction(models.Model):
     timestamp = models.DateTimeField()
     reversal = models.BooleanField(default=False)
 
-    user = models.ForeignKey(User)
+    TRANSACTION_STATE = (
+        (0, 'PENDING'),
+        (1, 'COMPLETED'),
+        (2, 'CANCELLED'),
+    )
+    state = models.IntegerField(choices = TRANSACTION_STATE, default = 0)
+
+#    user = models.ForeignKey(User)
 
     # Net price is without MVA    
     net_total_price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -65,15 +72,23 @@ class SalesTransaction(models.Model):
 
     gross_total_price = models.DecimalField(max_digits=10, decimal_places=2)
 
+    total_items = models.IntegerField()
+
+    def __unicode__(self):
+        return 'Sale %d' % (self.pk)
+
 
 class SalesTransactionItem(models.Model):
-    salestransaction = models.ForeignKey(SalesTransaction)
+    salestransaction = models.ForeignKey(SalesTransaction, related_name = 'items')
     product = models.ForeignKey(Product)
     amount = models.IntegerField()
 
     # Remember to multiple these with amount
     net_unit_price = models.DecimalField(max_digits=10, decimal_places=2)
     unit_mva = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __unicode__(self):
+        return 'Sale %d - Item %d' % (self.salestransaction.pk, self.pk)
 
 class Restocking(models.Model):
     timestamp = models.DateTimeField()
