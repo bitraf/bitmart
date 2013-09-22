@@ -2,3 +2,4 @@
 uploads
 testdb.sqlite
 tmp
+*.swp
